@@ -32,7 +32,7 @@ jobs: # a collection of steps
           path: ~/target/simple-maven-dep-1.0.jar
 
 
-      - nexus-orb/install
+     # - nexus-orb/install
 
       - nexus-orb/publish:
           # add the following required variables to your CircleCI environment:
