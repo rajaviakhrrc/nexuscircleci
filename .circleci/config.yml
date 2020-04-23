@@ -29,7 +29,7 @@ jobs: # a collection of steps
           path: target/surefire-reports
 
       - store_artifacts: # store the uberjar as an artifact
-          path: /home/circleci/target/simple-maven-dep-1.0.jar
+          path: target/packages
 
 
      # - nexus-orb/install
