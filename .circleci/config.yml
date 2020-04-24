@@ -30,16 +30,23 @@ jobs: # a collection of steps
 
       - store_artifacts: # store the uberjar as an artifact
           path: /home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar
+#       description: Publish artifacts to Nexus Respository Manager
+#         parameters:
+#   username:
+#     description: Username to access Nexus Repository Manager
+#     type: string
+#     default: '${NEXUS_RM_USERNAME}'
       
-      - nexus-orb/install:
+      
+      #- nexus-orb/install:
 
-      - nexus-orb/publish:
+       - nexus-orb/publish:
           # add the following required variables to your CircleCI environment:
           #   NEXUS_RM_USER
           #   NEXUS_RM_PASSWORD
-          filename: "/home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar" # or environment NEXUS_RM_FILENAME
-          attributes: "-CgroupId=com.example -CartifactId=myapp -Cversion=1.3 -Aextension=jar" # or NEXUS_RM_ATTRIBUTES
-          serverurl: "http://52.250.57.31:8081/repository/artifactoryCircleCI/" # or environment NEXUS_RM_SERVERURL
+           filename: "/home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar" # or environment NEXUS_RM_FILENAME
+         # attributes: "-CgroupId=com.example -CartifactId=myapp -Cversion=1.3 -Aextension=jar" # or NEXUS_RM_ATTRIBUTES
+         # serverurl: "http://52.250.57.31:8081/repository/artifactoryCircleCI/" # or environment NEXUS_RM_SERVERURL
 
 
      # - nexus-orb/install
