@@ -33,7 +33,7 @@ jobs: # a collection of steps
           
        - nexus-orb/publish:   
            filename: /home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar # or environment NEXUS_RM_FILENAME
-
+      
 #       description: Publish artifacts to Nexus Respository Manager
 #         parameters:
 #   username:
