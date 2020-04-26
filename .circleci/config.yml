@@ -27,7 +27,11 @@ jobs: # a collection of steps
       - run: mvn package # run the actual tests
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
           path: target/surefire-reports
-          
+      - store_artifacts: # store the uberjar as an artifact
+          path: /home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar
+nexus-orb/nexusjob: 
+  - nexus-orb/publish:   
+      filename: /home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar # or environment NEXUS_RM_FILENAME
 workflows:
   version: 2
   main:
