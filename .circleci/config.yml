@@ -1,6 +1,6 @@
 orbs:
   nexus-orb: sonatype/nexus-platform-orb@1.0.1
-version: 2 # use CircleCI 2.0
+version: 2.1 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
 
@@ -29,13 +29,13 @@ jobs: # a collection of steps
           path: target/surefire-reports
           
 workflows:
-  version: 2
+  version: 2.1
   main:
-       jobs:
-         - build
-         - nexus-orb/nexusjob:
-             requires:
-               - build
+    jobs:
+      - build
+      - nexus-orb/nexusjob:
+          requires:
+            - build 
 #       - store_artifacts: # store the uberjar as an artifact
 #           path: /home/circleci/circleci-demo-java-spring/target/simple-maven-dep-1.0.jar
           
